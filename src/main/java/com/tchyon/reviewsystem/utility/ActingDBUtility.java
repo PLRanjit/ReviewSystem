@@ -39,6 +39,7 @@ public class ActingDBUtility {
     this.reviewerWeightage.put(ReviewerLevel.CRITIC, 2);
   }
 
+  /** @return review list with reviewId as key and reviewpojo as */
   public Map<Integer, ReviewPojo> getReviewMapList() {
     return reviewMapList;
   }

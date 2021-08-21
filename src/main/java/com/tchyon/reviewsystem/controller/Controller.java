@@ -45,7 +45,9 @@ public class Controller {
   }
 
   /**
-   * Add new Platform with vertical to system
+   * Add new Platform with vertical to system.
+   *
+   * <p><b>Note :</b> Default release date is yesterday's date
    *
    * @param platformName - platform to be created
    * @param verticalName - vertical in which platform belongs

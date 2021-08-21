@@ -47,6 +47,9 @@ public class ReviewService {
         userName,
         platformName,
         review);
+    if (review > 5 || review < 1) {
+      throw new ReviewException("Review can't be less than 1 and greater than 5");
+    }
     UserPojo userPojo = userDao.getUserByUserName(userName);
     PlatformPojo platformPojo = platformDao.getPlatformByName(platformName);
     boolean isReviewEnabled = this.isReviewEnabled(platformPojo);
