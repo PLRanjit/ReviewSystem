@@ -1,7 +1,7 @@
 package com.tchyon.reviewsystem.service;
 
-import com.tchyon.reviewsystem.Exceptions.UserException;
 import com.tchyon.reviewsystem.dao.UserDao;
+import com.tchyon.reviewsystem.exceptions.UserException;
 import com.tchyon.reviewsystem.pojo.UserPojo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

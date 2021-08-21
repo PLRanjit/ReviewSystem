@@ -1,11 +1,11 @@
 package com.tchyon.reviewsystem.service;
 
-import com.tchyon.reviewsystem.Exceptions.PlatformException;
-import com.tchyon.reviewsystem.Exceptions.ReviewException;
-import com.tchyon.reviewsystem.Exceptions.UserException;
 import com.tchyon.reviewsystem.dao.PlatformDao;
 import com.tchyon.reviewsystem.dao.ReviewDao;
 import com.tchyon.reviewsystem.dao.UserDao;
+import com.tchyon.reviewsystem.exceptions.PlatformException;
+import com.tchyon.reviewsystem.exceptions.ReviewException;
+import com.tchyon.reviewsystem.exceptions.UserException;
 import com.tchyon.reviewsystem.pojo.PlatformPojo;
 import com.tchyon.reviewsystem.pojo.ReviewerLevel;
 import com.tchyon.reviewsystem.pojo.UserPojo;
@@ -37,6 +37,12 @@ public class ReviewService {
 
   @Autowired private ReviewDao reviewDao;
 
+  @Value("${app.review.range.max}")
+  private int reviewMax;
+
+  @Value("${app.review.range.min}")
+  private int reviewMin;
+
   @Value("${app.viewer.upgrade.threshold}")
   private int viewerThreshold;
 
@@ -47,8 +53,9 @@ public class ReviewService {
         userName,
         platformName,
         review);
-    if (review > 5 || review < 1) {
-      throw new ReviewException("Review can't be less than 1 and greater than 5");
+    if (review > reviewMax || review < reviewMin) {
+      throw new ReviewException(
+          String.format("Review can't be less than %s and greater than %s", reviewMin, reviewMax));
     }
     UserPojo userPojo = userDao.getUserByUserName(userName);
     PlatformPojo platformPojo = platformDao.getPlatformByName(platformName);

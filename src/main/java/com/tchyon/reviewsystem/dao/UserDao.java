@@ -1,6 +1,6 @@
 package com.tchyon.reviewsystem.dao;
 
-import com.tchyon.reviewsystem.Exceptions.UserException;
+import com.tchyon.reviewsystem.exceptions.UserException;
 import com.tchyon.reviewsystem.pojo.ReviewerLevel;
 import com.tchyon.reviewsystem.pojo.UserPojo;
 import com.tchyon.reviewsystem.utility.ActingDBUtility;

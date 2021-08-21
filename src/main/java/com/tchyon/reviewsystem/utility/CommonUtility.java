@@ -49,7 +49,6 @@ public class CommonUtility {
    */
   public LocalDateTime yesterdayDate() {
     LocalDateTime today = LocalDateTime.now();
-    LocalDateTime yesterday = today.minusDays(1);
-    return yesterday;
+    return today.minusDays(1);
   }
 }

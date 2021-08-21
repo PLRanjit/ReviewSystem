@@ -1,4 +1,4 @@
-package com.tchyon.reviewsystem.Exceptions;
+package com.tchyon.reviewsystem.exceptions;
 
 /**
  * Platform review System

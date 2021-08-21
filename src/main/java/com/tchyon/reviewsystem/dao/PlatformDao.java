@@ -1,6 +1,6 @@
 package com.tchyon.reviewsystem.dao;
 
-import com.tchyon.reviewsystem.Exceptions.PlatformException;
+import com.tchyon.reviewsystem.exceptions.PlatformException;
 import com.tchyon.reviewsystem.pojo.*;
 import com.tchyon.reviewsystem.utility.ActingDBUtility;
 import com.tchyon.reviewsystem.utility.CommonUtility;
@@ -148,12 +148,12 @@ public class PlatformDao {
         reviewList.values().stream()
             .collect(
                 Collectors.groupingBy(
-                    row -> row.getPlatformId(), Collectors.averagingInt(row -> row.getReview())));
+                    ReviewPojo::getPlatformId, Collectors.averagingInt(ReviewPojo::getReview)));
 
     return platformList.values().stream()
         .collect(
             Collectors.toMap(
-                row -> row.getPlatformName(),
+                PlatformPojo::getPlatformName,
                 row -> averageOfReviewPlatform.getOrDefault(row.getPlatformId(), 0.0)));
   }
 
@@ -169,7 +169,7 @@ public class PlatformDao {
     List<Integer> platformIds =
         platformVerticalMap.entrySet().stream()
             .filter(entry -> entry.getKey() == verticalId)
-            .map(entry -> entry.getValue())
+            .map(Map.Entry::getValue)
             .limit(n)
             .collect(Collectors.toList());
 
@@ -181,6 +181,6 @@ public class PlatformDao {
         .collect(
             Collectors.groupingBy(
                 row -> idPlatformMap.get(row.getPlatformId()),
-                Collectors.summingInt(row -> row.getReview())));
+                Collectors.summingInt(ReviewPojo::getReview)));
   }
 }

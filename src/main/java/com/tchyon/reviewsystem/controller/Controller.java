@@ -1,8 +1,8 @@
 package com.tchyon.reviewsystem.controller;
 
-import com.tchyon.reviewsystem.Exceptions.PlatformException;
-import com.tchyon.reviewsystem.Exceptions.ReviewException;
-import com.tchyon.reviewsystem.Exceptions.UserException;
+import com.tchyon.reviewsystem.exceptions.PlatformException;
+import com.tchyon.reviewsystem.exceptions.ReviewException;
+import com.tchyon.reviewsystem.exceptions.UserException;
 import com.tchyon.reviewsystem.pojo.UserPojo;
 import com.tchyon.reviewsystem.pojo.ViewPlatformPojo;
 import com.tchyon.reviewsystem.pojo.ViewReviewPojo;

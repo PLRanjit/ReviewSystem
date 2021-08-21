@@ -1,7 +1,7 @@
 package com.tchyon.reviewsystem.service;
 
-import com.tchyon.reviewsystem.Exceptions.PlatformException;
 import com.tchyon.reviewsystem.dao.PlatformDao;
+import com.tchyon.reviewsystem.exceptions.PlatformException;
 import com.tchyon.reviewsystem.pojo.ViewPlatformPojo;
 import com.tchyon.reviewsystem.utility.CommonUtility;
 import org.slf4j.Logger;

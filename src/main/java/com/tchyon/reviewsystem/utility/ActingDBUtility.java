@@ -1,6 +1,7 @@
 package com.tchyon.reviewsystem.utility;
 
 import com.tchyon.reviewsystem.pojo.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -33,10 +34,16 @@ public class ActingDBUtility {
   private Map<Integer, ReviewPojo> reviewMapList = new HashMap<>();
   private EnumMap<ReviewerLevel, Integer> reviewerWeightage = new EnumMap<>(ReviewerLevel.class);
 
+  @Value("${app.review.level.viewer.weightage}")
+  private int viewerWeightAge;
+
+  @Value("${app.review.level.critic.weightage}")
+  private int criticWeightAge;
+
   @PostConstruct
   private void reviewerWeightage() {
-    this.reviewerWeightage.put(ReviewerLevel.VIEWER, 1);
-    this.reviewerWeightage.put(ReviewerLevel.CRITIC, 2);
+    this.reviewerWeightage.put(ReviewerLevel.VIEWER, viewerWeightAge);
+    this.reviewerWeightage.put(ReviewerLevel.CRITIC, criticWeightAge);
   }
 
   /** @return review list with reviewId as key and reviewpojo as */

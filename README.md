@@ -2,6 +2,17 @@
 
 Platform Review System
 
+Requirements :
+
+- Add Users & Platform | line 38 & 50
+  from [ReviewSystemApplication.java](src/main/java/com/tchyon/reviewsystem/ReviewSystemApplication.java).
+- User to review Platform | line 55
+  from [ReviewSystemApplication.java](src/main/java/com/tchyon/reviewsystem/ReviewSystemApplication.java).
+- List top 'n' platforms by total review score by critics in particular Vertical | line 77
+  from [ReviewSystemApplication.java](src/main/java/com/tchyon/reviewsystem/ReviewSystemApplication.java).
+- Average Score of platforms | line 72
+  from [ReviewSystemApplication.java](src/main/java/com/tchyon/reviewsystem/ReviewSystemApplication.java).
+
 Platform :
 
 - If release date not provided platform release date will be previous date.
@@ -24,6 +35,13 @@ Review -
 - 1 is minimum and 5 is maximum
 - VIEWER level user score has weightage as 1x & 'CRITIC' level user has weightage as 2x. i.e if CRITIC gives review as 4
   => 8 & if VIEWER gives review as 5 => 5
+
+Test :-
+
+- Multiple Review for same platform from same user uncomment line : 60
+  from [ReviewSystemApplication.java](src/main/java/com/tchyon/reviewsystem/ReviewSystemApplication.java)
+- Early release review uncomment line : 63
+  from [ReviewSystemApplication.java](src/main/java/com/tchyon/reviewsystem/ReviewSystemApplication.java)
 
 File [ActingDbUtility.java](src/main/java/com/tchyon/reviewsystem/utility/ActingDBUtility.java) is being used as
 replacement for the database. Below is the list of variables present in the file with some info.

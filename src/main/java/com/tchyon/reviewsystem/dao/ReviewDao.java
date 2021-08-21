@@ -128,7 +128,7 @@ public class ReviewDao {
           String userName =
               userIdMap.entrySet().stream()
                   .filter(entry -> entry.getValue().equals(userId))
-                  .map(entry -> entry.getKey())
+                  .map(Map.Entry::getKey)
                   .findAny()
                   .orElse("NA");
           reviewIds.forEach(
