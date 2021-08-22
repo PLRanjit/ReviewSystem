@@ -2,6 +2,8 @@
 
 Platform Review System
 
+Note: Change log level to 'DEBUG' to see the details logs
+
 Requirements :
 
 - Add Users & Platform | line 38 & 50
@@ -16,7 +18,9 @@ Requirements :
 Platform :
 
 - If release date not provided platform release date will be previous date.
-- Average Score will List all the available platforms with average total score
+- Average Score will List all the available platforms with average total score. if review not present 0.0 will be
+  returned for that platform
+- Average score for platform will give if average review score if present else 0.0
 - Top 'n' Platform reviewed by 'CRITIC' level user for Vertical 'v' will exclude all the review's made by 'VIEWER' level
   user And Platform's which are not under Vertical 'v'
 
@@ -42,6 +46,9 @@ Test :-
   from [ReviewSystemApplication.java](src/main/java/com/tchyon/reviewsystem/ReviewSystemApplication.java)
 - Early release review uncomment line : 63
   from [ReviewSystemApplication.java](src/main/java/com/tchyon/reviewsystem/ReviewSystemApplication.java)
+- User Upgrade line : 57
+  from [ReviewSystemApplication.java](src/main/java/com/tchyon/reviewsystem/ReviewSystemApplication.java) | user 'Adam'
+  has published 3 review, so he is promoted
 
 File [ActingDbUtility.java](src/main/java/com/tchyon/reviewsystem/utility/ActingDBUtility.java) is being used as
 replacement for the database. Below is the list of variables present in the file with some info.

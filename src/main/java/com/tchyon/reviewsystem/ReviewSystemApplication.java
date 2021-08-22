@@ -72,6 +72,10 @@ public class ReviewSystemApplication implements CommandLineRunner {
     Map<String, Double> averagePlatform = controller.averagePlatformScore();
     logger.info("Platform Wise Average :: {}", averagePlatform);
 
+    String platformName = "5paisa";
+    double averageScoreOfPaisa = controller.averageReviewScoreOfPlatform(platformName);
+    logger.info("Platform : {} average review score : {}", platformName, averageScoreOfPaisa);
+
     int limit = 5;
     Map<String, Integer> platformTotalScore =
         controller.topNReviewTotalByCriticsInVertical(limit, "Cryptocurreny");

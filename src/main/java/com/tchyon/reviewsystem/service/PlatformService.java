@@ -58,4 +58,11 @@ public class PlatformService {
         verticalName);
     return dao.topNReviewTotalByCriticsInVertical(n, verticalName);
   }
+
+  public double averageReviewScoreOfPlatform(String platformName) throws PlatformException {
+    logger.debug(
+        "PlatformService :: averageReviewScoreOfPlatform :: platformName : {}", platformName);
+
+    return dao.averageReviewScoreOfPlatform(platformName);
+  }
 }

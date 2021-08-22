@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 
 /**
@@ -139,6 +140,21 @@ public class PlatformDao {
     logger.debug(
         "PlatformDao :: getPlatformByName : platform found with name : '{}' ", platformName);
     return platformList.get(platformIdMap.get(platformName));
+  }
+
+  public double averageReviewScoreOfPlatform(String platformName) throws PlatformException {
+    Map<String, Integer> platformIdMap = utility.getPlatformIdMap();
+    Map<Integer, ReviewPojo> reviewList = utility.getReviewMapList();
+    if (!platformIdMap.containsKey(platformName)) {
+      throw new PlatformException(String.format("'%s' platform do not exist", platformName));
+    }
+    int platformId = platformIdMap.get(platformName);
+    OptionalDouble averageOpt =
+        reviewList.values().stream()
+            .filter(row -> row.getPlatformId() == platformId)
+            .mapToInt(ReviewPojo::getReview)
+            .average();
+    return averageOpt.orElse(0.0);
   }
 
   public Map<String, Double> averagePlatformScore() {

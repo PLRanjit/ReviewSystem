@@ -120,6 +120,19 @@ public class Controller {
   }
 
   /**
+   * Gets you average review score for a platform
+   *
+   * <p>if review not present 0.0 will be return
+   *
+   * @param platformName - platform whose average needed
+   * @return - average score of the platform
+   * @throws PlatformException - if platform not found with the name
+   */
+  public double averageReviewScoreOfPlatform(String platformName) throws PlatformException {
+    return platformService.averageReviewScoreOfPlatform(platformName);
+  }
+
+  /**
    * Shows all the platform info
    *
    * @return - platforms
